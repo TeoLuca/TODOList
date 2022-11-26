@@ -33,6 +33,7 @@ export class TasksService {
       allTasks.push({'key': key, 'value': value});
     });
 
+    console.log("allTasks", allTasks);
     return allTasks;
   }
 

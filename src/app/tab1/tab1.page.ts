@@ -54,11 +54,11 @@ export class Tab1Page {
 
   async getAllTasksFromStorage(){
     this.tasksList = await this.storage.getTasks();
-
   }
 
-  completeTask(task: any){
-    console.log("completed!", task)
+  async completeTask(task: any){
+    task.value.isCompleted = true;
+    this.storage.editTask(task.key, task.value).then(() => this.getAllTasksFromStorage());
   }
 
 

@@ -36,10 +36,9 @@ export class AddNewTaskPage implements OnInit {
       return;
     }
 
-
     let convertedCreatedDate = new Date().toLocaleDateString()
-    this.task = ({taskTitle : this.title, createdDate: convertedCreatedDate ,dueDate : this.dueDate})
 
+    this.task = ({taskTitle : this.title, createdDate: convertedCreatedDate ,dueDate : this.dueDate, isCompleted : false})
     let randomKey = Date.now() + this.title;
 
     //call storage service for add new task

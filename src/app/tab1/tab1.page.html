@@ -19,7 +19,7 @@
       </ion-card-content>
 
     <ion-grid>
-      <ion-row>
+      <ion-row *ngIf="!task.value.isCompleted">
         <ion-col>
           <ion-button (click)="completeTask(task)"><ion-icon name="checkmark"></ion-icon></ion-button>
         </ion-col>
@@ -29,6 +29,9 @@
         <ion-col>
           <ion-button (click)="renderEditTaskPage(task)"><ion-icon name="brush"></ion-icon></ion-button>
         </ion-col>
+      </ion-row>
+      <ion-row *ngIf="task.value.isCompleted" class="completed">
+        <ion-text>Completed!</ion-text>
       </ion-row>
 
     </ion-grid>
