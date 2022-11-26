@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add new task</ion-title>
+    <ion-icon name="close" slot="end" size="large" (click)="closeModal()" class="ion-padding"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <ion-card>
+    <ion-label>Title:</ion-label>
+    <ion-textarea placeholder="type here" [(ngModel)]="title"></ion-textarea>
+    <ion-label>Due date:</ion-label>
+    <ion-datetime [(ngModel)]="dueDate"></ion-datetime>
+
+
+
+  </ion-card>
+  <ion-button (click)="saveTask()">Save task</ion-button>
+
+</ion-content>

@@ -5,6 +5,14 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'add-new-task',
+    loadChildren: () => import('./add-new-task-modal/add-new-task.module').then( m => m.AddNewTaskPageModule)
+  },
+  {
+    path: 'edit-task',
+    loadChildren: () => import('./edit-task/edit-task.module').then( m => m.EditTaskPageModule)
   }
 ];
 @NgModule({

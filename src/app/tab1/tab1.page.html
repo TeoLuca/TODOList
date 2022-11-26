@@ -1,17 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+
+      <ion-text color="secondary">What do you have to do today {{today | date }}.</ion-text>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-text *ngIf="tasksList.length == 0">You don't have any tasks yet!</ion-text>
+  <ion-list *ngFor="let task of tasksList; let i = index;">
+    <ion-card color="medium">
+      <ion-card-header>
+        <ion-card-title>{{task.value.taskTitle}}</ion-card-title>
+        <ion-card-subtitle>Created Date: {{task.value.createdDate}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-label>Due Date: {{task.value.dueDate | date: 'dd/MM/yyyy'}}</ion-label>
+      </ion-card-content>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="completeTask(task)"><ion-icon name="checkmark"></ion-icon></ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="deleteTask(task.key)"><ion-icon name="trash"></ion-icon></ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="renderEditTaskPage(task)"><ion-icon name="brush"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+    </ion-card>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="renderAddNewTaskModal()" expand="block">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

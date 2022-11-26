@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit task</ion-title>
+    <ion-icon name="close" slot="end" size="large" (click)="dismis()" class="ion-padding"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <ion-card>
+
+    <ion-textarea placeholder="type here" [(ngModel)]="editTaskTitle"></ion-textarea>
+    <ion-label>Due Date</ion-label>
+    <ion-datetime [(ngModel)]="editTaskDueDate"></ion-datetime>
+
+  </ion-card>
+  <ion-button (click)="saveTask()">Save task</ion-button>
+
+
+</ion-content>
