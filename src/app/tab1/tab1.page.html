@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-text *ngIf="tasksList.length == 0">You don't have any tasks yet!</ion-text>
+  <div class="noTasks" *ngIf="tasksList.length == 0">You don't have any tasks yet!</div>
   <ion-list *ngFor="let task of tasksList; let i = index;">
     <ion-card color="medium">
       <ion-card-header>
@@ -21,17 +21,17 @@
     <ion-grid>
       <ion-row *ngIf="!task.value.isCompleted">
         <ion-col>
-          <ion-button (click)="completeTask(task)"><ion-icon name="checkmark"></ion-icon></ion-button>
+          <ion-button color="success" (click)="completeTask(task)">Complete<ion-icon slot="end" name="checkmark"></ion-icon></ion-button>
         </ion-col>
         <ion-col>
-          <ion-button (click)="deleteTask(task.key)"><ion-icon name="trash"></ion-icon></ion-button>
+          <ion-button color="danger" (click)="deleteTask(task.key)">Delete<ion-icon slot="end" name="trash"></ion-icon></ion-button>
         </ion-col>
         <ion-col>
-          <ion-button (click)="renderEditTaskPage(task)"><ion-icon name="brush"></ion-icon></ion-button>
+          <ion-button color="warning" (click)="renderEditTaskPage(task)">Edit<ion-icon slot="end" name="create"></ion-icon></ion-button>
         </ion-col>
       </ion-row>
       <ion-row *ngIf="task.value.isCompleted" class="completed">
-        <ion-text>Completed!</ion-text>
+        <ion-text>COMPLETED!</ion-text>
       </ion-row>
 
     </ion-grid>
